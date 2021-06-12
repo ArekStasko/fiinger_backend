@@ -21,8 +21,9 @@ const seedDB = async() => {
             title: 'Tytul oh yeah',
             description: 'Ooo opis tez ma',
             link: 'link do czegos tam',
-            category: 'Music',
-            author: 'Jiraiyia'
+            category: 'music',
+            author: 'Jiraiyia',
+            id: i,
         })
         await thing.save()
     }

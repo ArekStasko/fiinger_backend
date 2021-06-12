@@ -22,7 +22,7 @@ const ThingSchema = new Schema({
     author:{
         type: String,
         required: true, 
-    }
+    },
 })
 
 module.exports = mongoose.model('Thing', ThingSchema)
