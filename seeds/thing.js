@@ -22,7 +22,7 @@ const seedDB = async() => {
             description: 'Ooo opis tez ma',
             link: 'link do czegos tam',
             category: 'music',
-            author: 'Jiraiyia',
+            author: '60c629c03d2eb121f04c5ad2',
             id: i,
         })
         await thing.save()
