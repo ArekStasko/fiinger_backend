@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
 const express = require("express")
 const mongoose = require("mongoose")
 const passport = require('passport')
@@ -7,9 +11,12 @@ const LocalStrategy = require('passport-local')
 const User = require('./models/user');
 const { deserializeUser } = require("passport");
 const app = express();
-const port = 5000;
 
-mongoose.connect('mongodb://localhost:27017/things', {
+const dbUrl = process.env.MNG
+const srt = process.env.SECRET
+const port = process.env.PORT
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -27,7 +34,7 @@ app.use(bodyParser.json());
 
 //session
 const sessionConfig = {
-    secret: '48139hd10hd',
+    secret: srt,
     resave: false,
     saveUninitialized: true,
     cookie: {
