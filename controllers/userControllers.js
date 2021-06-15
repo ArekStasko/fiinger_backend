@@ -15,7 +15,7 @@ exports.usersRegistration = async(req, res, next) => {
         res.send('Upss error', e.message)
     }
 }
-
+ 
 
 exports.usersLogin = async(req, res, next) => {
     console.log(req.user._id)
