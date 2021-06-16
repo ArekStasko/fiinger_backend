@@ -9,7 +9,7 @@ exports.usersRegistration = async(req, res, next) => {
         const registeredUser = await User.register(user, password)
         req.login(registeredUser, err=>{
             if(err) return next(err)
-            res.send('successfull registered and login')
+            res.redirect('/')
         })
     } catch(e){
         res.send('Upss error', e.message)
@@ -18,11 +18,30 @@ exports.usersRegistration = async(req, res, next) => {
  
 
 exports.usersLogin = async(req, res, next) => {
-    console.log(req.user._id)
-   res.send('successfull login') 
+    res.redirect('/')
 }
 
 exports.usersLogout = async(req, res, next) => {
    req.logout()
    res.send('goodbyeee <3')
 }
+
+
+
+
+/*
+
+{
+    "username": "arek",
+    "password": "Arek6565"
+}
+
+
+{
+    "title": "super nutka",
+    "description": "serio posluchaj sobie",
+    "link": "https://www.youtube.com/watch?v=Xx0blzRFQRs",
+    "category": "music"
+}
+
+*/
