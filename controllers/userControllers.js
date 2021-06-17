@@ -18,7 +18,7 @@ exports.usersRegistration = async(req, res, next) => {
  
 
 exports.usersLogin = async(req, res, next) => {
-    res.send(user)
+    res.send(req.user)
 }
 
 exports.usersLogout = async(req, res, next) => {
