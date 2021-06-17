@@ -11,10 +11,11 @@ const LocalStrategy = require('passport-local')
 const User = require('./models/user');
 const { deserializeUser } = require("passport");
 const app = express();
+var cors = require('cors')
 
 const dbUrl = process.env.MNG
 const srt = process.env.SECRET
-const port = process.env.PORT
+const port = process.env.PORT 
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -22,6 +23,8 @@ mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
     useFindAndModify: false
 })
+
+app.use(cors())
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'conection error:'));
