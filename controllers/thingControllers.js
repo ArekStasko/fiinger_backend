@@ -5,6 +5,7 @@ exports.getThings = async(req, res) => {
     const { category } = req.params
     const id = req.body.userID
     const things = await Thing.find({category: category, author: id})
+    console.log(category, id)
     res.send({things})
  }
 
