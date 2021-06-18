@@ -3,14 +3,14 @@ const Thing = require('../models/thing')
 
 exports.getThings = async(req, res) => {
     const { category } = req.params
-    const id = req.user._id 
+    const id = req.body.userID
     const things = await Thing.find({category: category, author: id})
     res.json({things})
  }
 
 exports.createThing = async(req, res) => {
     const thing = new Thing(req.body)
-    thing.author = req.user._id
+    thing.author = req.body.userID
     await thing.save()
     res.send(thing)
 }
