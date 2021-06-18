@@ -3,7 +3,7 @@ const Thing = require('../models/thing')
 
 exports.getThings = async(req, res) => {
     const { category } = req.params
-    const id = req.body.userID
+    const id = req.query.userID
     const things = await Thing.find({category: category, author: id})
     console.log(category, id, req.body),
     res.send({things})
