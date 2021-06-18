@@ -5,7 +5,7 @@ exports.getThings = async(req, res) => {
     const { category } = req.params
     const id = req.body.userID
     const things = await Thing.find({category: category, author: id})
-    console.log(category, id)
+    console.log(category, id, req.body),
     res.send({things})
  }
 
@@ -21,3 +21,12 @@ exports.deleteThing = async(req, res) => {
     await Thing.findByIdAndDelete(id)
     res.send('successfull deleted post')
 }
+
+/*
+{
+    "username": "arek",
+    "password": "Arek6565"
+
+    id: '60c9c1ef58047225a86df7b5'
+}
+*/
