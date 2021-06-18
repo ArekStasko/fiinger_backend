@@ -9,7 +9,7 @@ exports.usersRegistration = async(req, res, next) => {
         const registeredUser = await User.register(user, password)
         req.login(registeredUser, err=>{
             if(err) return next(err)
-            res.redirect('/')
+            res.send(req.user)
         })
     } catch(e){
         res.send('Upss error', e.message)
