@@ -11,7 +11,7 @@ exports.getThings = async(req, res) => {
 
 exports.createThing = async(req, res) => {
     const thing = new Thing(req.body)
-    thing.author = req.body.userID
+    thing.author = req.query.userID
     await thing.save()
     res.send(thing)
 }
@@ -21,12 +21,3 @@ exports.deleteThing = async(req, res) => {
     await Thing.findByIdAndDelete(id)
     res.send('successfull deleted post')
 }
-
-/*
-{
-    "username": "arek",
-    "password": "Arek6565"
-
-    id: '60c9c1ef58047225a86df7b5'
-}
-*/
