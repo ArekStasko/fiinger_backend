@@ -10,7 +10,7 @@ exports.getThings = async(req, res) => {
 
 exports.createThing = async(req, res) => {
     const thing = new Thing(req.body.thingContent)
-    thing.author = req.params.userID
+    thing.author = req.body.params.userID
     console.log(req.body)
     await thing.save()
     res.send(thing)
