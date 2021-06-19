@@ -9,8 +9,8 @@ exports.getThings = async(req, res) => {
  }
 
 exports.createThing = async(req, res) => {
-    const thing = new Thing(req.body)
-    thing.author = req.query.userID
+    const thing = new Thing(req.body.thingContent)
+    thing.author = req.params.userID
     console.log(req.body)
     await thing.save()
     res.send(thing)
